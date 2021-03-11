@@ -33,12 +33,21 @@ WHERE
 
 Дамп бд лежит в корне проекта с названием test.sql
 
+СУБД, которую использовал:
+
+*Server version	10.2.36-MariaDB-1:10.2.36+maria~bionic*
+
 ## 2 задача:
 Чтобы развернуть проект нужно выполнить след. действия:
 - Склонировать репозиторий
 - cd meleton
+- cp .env.example .env
 - docker-compose up -d
-- docker exec -it h-php bash -c "./init.sh"
+- docker exec -it ml-php bash -c "composer install"
+- docker exec -it ml-php bash -c "php artisan key:generate"
+- docker exec -it ml-php bash -c "php artisan migrate --seed"
+- docker exec -it ml-php bash -c "php artisan l5-swagger:generate"
+- docker exec -it ml-php bash -c "chmod -R 777 /application/storage/logs"
 
 P.S.
 * Ось значения не имеет, нужен docker 19+ и docker-compose 1.2.5+
