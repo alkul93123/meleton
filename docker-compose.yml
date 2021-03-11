@@ -1,0 +1,91 @@
+version: "3.1"
+services:
+    mysql:
+      image: mysql:8
+      container_name: ${DOCKER_CONTAINER_PREFIX}-mysql
+      working_dir: /application
+      volumes:
+        - ./:/application
+        - mysql:/var/lib/mysql
+      environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_DATABASE=database
+        - MYSQL_USER=root
+        - MYSQL_PASSWORD=root
+      ports:
+        - "${DOCKER_COMPOSE_PORT_PREFIX}2:3306"
+      restart: always
+
+    webserver:
+      build: docker/nginx
+      container_name: ${DOCKER_CONTAINER_PREFIX}-webserver
+      user: root
+      working_dir: /application
+      volumes:
+        - ./:/application
+        - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+        - "${DOCKER_COMPOSE_PORT_PREFIX}3:80"
+      depends_on:
+        - php-fpm
+      restart: always
+
+    redis:
+      image: redis:alpine
+      container_name: ${DOCKER_CONTAINER_PREFIX}-redis
+      restart: always
+
+    php-fpm:
+      build: docker/php-fpm
+      container_name: ${DOCKER_CONTAINER_PREFIX}-php
+      working_dir: /application
+      volumes:
+        - ./:/application
+        - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
+      restart: always
+#      command: bash -c "./init.sh"
+
+#    postgres:
+#      build: docker/postgres
+#      container_name: ${DOCKER_CONTAINER_PREFIX}-postgres
+#      user: root
+#      working_dir: /application
+#      volumes:
+#        - ./:/application
+#        - pgdata:/var/lib/postgresql/data
+#      environment:
+#        - POSTGRES_USER=root
+#        - POSTGRES_PASSWORD=root
+#        - POSTGRES_DB=helastel
+#        - PGDATA=/tmp
+#      ports:
+#        - "${DOCKER_COMPOSE_PORT_PREFIX}4:5432"
+#      restart: always
+#
+#    nodejs:
+#      image: node:14-alpine
+#      container_name: ${DOCKER_CONTAINER_PREFIX}-nodejs
+#      working_dir: /application
+#      ports:
+#        - "${DOCKER_COMPOSE_PORT_PREFIX}5:8080"
+#      volumes:
+#        - ./:/application
+#      tty: true
+#      depends_on:
+#        - webserver
+#      networks:
+#        - default
+#      restart: always
+#      command: sh -c "npm install && npm run watch"
+
+
+volumes:
+  pgdata:
+  mysql:
+  db:
+
+networks:
+ default:
+   driver: bridge
+  # second_default:
+  #   external: true

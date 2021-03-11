@@ -1,0 +1,215 @@
+//
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Rubik,Avenir Next,Helvetica Neue,sans-serif;
+}
+
+.el-menu-vertical-demo {
+    min-height: calc(100vh - 61px);
+}
+
+.main-container {
+    min-height: calc(100vh - 122px);
+}
+
+.el-main-container {
+
+}
+
+.el-menu--collapse {
+  width: 63px !important;
+}
+
+.li-header-logo {
+    width: 100%;
+    text-align: center;
+}
+
+.aside-user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 61px;
+    background: #3c3247;
+    color: #fff;
+    font-weight: bold;
+    border-right: 1px solid white;
+    border-bottom: 1px solid #757575
+}
+
+.el-menu-item {
+    font-weight: bold;
+}
+
+.el-dropdown-menu__item .el-divider--horizontal {
+  margin: 8px 0;
+}
+
+.main-container {
+  background-color: #f4f5f7;
+}
+
+.pull-right {
+  float:right !important;
+}
+.pull-left {
+  float:left !important;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header--title {
+  display: flex;
+  align-items: center;
+}
+.header--additional {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.footer--additional {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.right-click-wrapper li.el-dropdown-menu__item {
+  font-size: 12px;
+}
+
+li.el-dropdown-menu__item a {
+  text-decoration: none;
+  color: #606266;
+}
+.flex-container__col--search .el-select {
+  width: 100%;
+}
+.additional_actions--row {
+  margin: 5% 0;
+}
+.additional_actions--row .el-button {
+ width: 100%;
+}
+
+.additional_actions--row .el-button i {
+  float: left;
+}
+
+.filter-drawer__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.filter-drawer__content--body {
+  flex: 1;
+}
+
+.filter-drawer__content--body .el-form-item__content {
+  display: flex;
+}
+
+.filter-drawer__content--footer {
+  display: flex;
+}
+
+.filter-drawer__content--footer .el-button {
+  flex: 1;
+}
+
+.filter-drawer__content {
+  padding: 20px;
+}
+
+.color--success {
+  color: #67C23A;
+}
+.color--danger {
+  color: red;
+}
+
+.filters-layout {
+  overflow: auto;
+}
+
+.bets-container {
+  width: 100%;
+  font-size: 12px;
+  height: 400px;
+  overflow-y: auto;
+}
+.bets-container__header {
+  display: flex;
+  min-height: 40px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 12px;
+  border-bottom: 1px solid grey;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  margin-bottom: 2%;
+}
+.bets-container__header-item, .bets-container__rows-row {
+  flex: 1;
+  text-align: center;
+}
+
+.bets-container__rows--new {
+  position: sticky;
+  bottom: 0;
+  background-color: #fff;
+}
+
+.bets-container__row {
+  display: flex;
+  min-height: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bets-container__header-item--city, .bets-container__rows-row--city {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 30%;
+}
+
+.bets-container__header-item--actions, .bets-container__rows-row--actions {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 3%;
+  text-align: center;
+}
+
+.bets-container__rows-row--actions i:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.bets-container__rows-row--actions i.el-icon-check:hover {
+  cursor: pointer;
+  color: green;
+}
+
+.bets-container::-webkit-scrollbar { width: 6px; height: 1px}
+.bets-container::-webkit-scrollbar-button {  background-color: #eee; height: 0;}
+.bets-container::-webkit-scrollbar-thumb { height: 10px; background-color: #eee; border-radius: 3px;}
+.bets-container::-webkit-scrollbar:hover { width: 10px; }
+.bets-container::-webkit-scrollbar-thumb:hover { background-color: #409EFF; cursor: pointer; }
+
+.el-drawer { overflow: auto !important; }
+.el-drawer::-webkit-scrollbar { width: 6px; height: 1px}
+.el-drawer::-webkit-scrollbar-button {  background-color: #eee; height: 0;}
+.el-drawer::-webkit-scrollbar-thumb { height: 10px; background-color: #eee; border-radius: 3px;}
+.el-drawer::-webkit-scrollbar:hover { width: 10px; }
+.el-drawer::-webkit-scrollbar-thumb:hover { background-color: #594965; cursor: pointer; }
